@@ -1,0 +1,60 @@
+<main>
+    <h2>Films populaire cette semaine</h2>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-4 col-md-3 col-sm-6 col-12 " *ngFor="let movie of movies">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <p>{{movie.release_date}}</p>
+                    <p class="card-text">
+                        {{movie.overview|slice:0:120}}
+                    </p>
+                    <div class="row">
+                        <div class="col-2">
+                            <a href="#" class="btn btn-primary">Voir la fiche du film</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+
+
+<main>
+
+    <!--Container card film -->
+    <div class="row">
+        <div class="card col-xl-3 col-lg-3 col-md-5 col-sm-10 col-12" *ngFor="let movie of movies">
+            <img class="card-img-top " src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
+
+            <div class="accordion" id="accordionExample">
+
+
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <!-- Titre et-->
+                               <h5>{{movie.title}}</h5>
+                               <cite>{{movie.release_date}}</cite>
+                              </button>
+                </h5>
+
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <!-- Description film -->
+                    <div class="card-body">
+                        {{movie.overview|slice:0:150}}
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-secondary">Voir Film </a>
+        </div>
+
+    </div>
+</main>
